@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+
+	<h:body>
+
+		<f:metadata> 
+			<f:viewParam name="id" value="#{mbAdminMouvement.mouvementSelectedId}"/> 	
+			<f:event listener="#{mbAdminMouvement.initMouvementSelected()}" type="preRenderView"></f:event>
+		</f:metadata>
+
+	<ui:composition template="/adminPage.xhtml">
+	<ui:define name="content" >
+<div class="leftPage">
+
+
+
+<h3 style="color: #35cbdf; font-family: Arial, sans-serif; font-size:50px" align="center"  >
+	<h:outputText value="Detail du mouvement : "/> 
+</h3>
+
+ <b:link  value="Retour" href="javascript:history.go(-1)" styleClass="btn btn-primary" size="sm" span="1" offset="5" /> 
+
+<br/><br/><br/> 
+
+<h:form>
+  <b:dataTable value="#{mbAdminMouvement.mouvementSelected.majStocks}"
+               var="majStock" span="8" offset="2">
+               
+   	<b:dataTableColumn value="#{majStock.mouvement.description}" label="Description" width="10px"></b:dataTableColumn>
+	<b:dataTableColumn order="asc">
+		<f:facet name="header"><h:outputText value="Date mouvement" order="asc"/></f:facet>
+		<h:outputText value="#{majStock.mouvement.date}">
+			<f:convertDateTime pattern="#{mbUser.DATE_FORMAT}" />									
+		</h:outputText>
+	</b:dataTableColumn>
+    <b:dataTableColumn value="#{majStock.mouvement.typeMouvement.nom}" label="Type mouvement" width="10px"></b:dataTableColumn>
+    <b:dataTableColumn value="#{majStock.article.nom}" label="Article" width="10px"></b:dataTableColumn>
+    <b:dataTableColumn value="#{majStock.quantite}" label="Quantité" width="10px"></b:dataTableColumn>
+  
+  </b:dataTable>
+</h:form>
+
+
+</div>
+</ui:define>
+</ui:composition>
+
+</h:body>
+</html>

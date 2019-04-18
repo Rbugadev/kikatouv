@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+	
+	<h:body>
+	<ui:composition template="/arche.xhtml">
+	<ui:define name="content" >
+		<div class="leftPage">
+			<b:form>
+			<br/>
+			<b:row>
+ 				<b:column span="6" offset="3">
+ 				<h3 style="color: #35cbdf; font-family: Arial, sans-serif; font-size:50px" align="center"  >Inscription à KikaTou</h3></b:column>
+			</b:row>	
+	
+			<b:row>
+ 				<b:column span="6" offset="3" ><br/>
+ 					<h:outputLabel value="Informations de connexion" style="font-family: Arial, sans-serif; font-size:20px;"/><br/>	
+				</b:column>
+			</b:row>
+			<br/>
+			
+			<b:formGroup>	
+			<b:row>
+ 				<b:column span="6" offset="3">
+ 					<b:inputText value="#{mbUser.ajoutUser.adresseMail}" placeholder="Adresse e-mail" required="true"/><br/>
+ 				</b:column>
+ 			</b:row>
+
+			<b:row>
+ 				<b:column span="6" offset="3">
+ 					<b:inputText value="#{mbUser.ajoutUser.login}" placeholder="Identifiant" required="true"/><br/>
+ 				</b:column>
+		 	</b:row>
+
+			<b:row>
+ 				<b:column span="6" offset="3">
+ 					<b:inputSecret value="#{mbUser.ajoutUser.password}" placeholder="Mot de passe" required="true"/><br/>
+ 				</b:column>
+ 			</b:row>
+ 
+			<b:row>
+ 				<b:column span="6" offset="3">
+ 					<b:inputSecret  placeholder="Confirmer votre mot de passe" required="true"/><br/>
+ 				</b:column>
+ 			</b:row>
+
+			<b:row>
+ 				<b:column span="6" offset="3"><br/>
+ 					<h:outputLabel value="Informations personnelles" style="font-family: Arial, sans-serif; font-size:20px"/><br/>	
+				</b:column>
+			</b:row>
+
+			<b:row>
+ 				<b:column span="6" offset="3">
+ 					<b:inputText value="#{mbUser.ajoutUser.nom}" placeholder="Nom" required="true"/><br/>
+ 				</b:column>
+ 			</b:row>
+
+			<b:row>
+ 				<b:column span="6" offset="3">
+ 					<b:inputText value="#{mbUser.ajoutUser.prenom}" placeholder="Prénom" required="true"/><br/>
+ 				</b:column>
+ 			</b:row>
+ 			
+ 			<b:form><b:row>
+				<b:column span="6" offset="3">
+					<b:dateTimePicker mode="toggle-icon"
+									show-icon="true"
+									placeholder="Date de naissance 01.12.1980"
+									value="#{mbUser.ajoutUser.dateDeNaissance}"
+									required="true" format="DD.MM.YYYY" />
+     			</b:column>
+			</b:row></b:form> <br/>
+
+			<b:row>
+ 				<b:column span="6" offset="3">
+ 					<b:inputText value="#{mbUser.ajoutUser.numTelPortable}" placeholder="Numéro de portable" required="true"/><br/>
+ 				</b:column>
+ 			</b:row>
+
+			<b:row>
+ 				<b:column span="6" offset="3">
+					<b:inputText value="#{mbUser.ajoutUser.numTelFixe}" placeholder="Numéro de téléphone"/><br/>
+				</b:column>
+			</b:row>
+
+			<b:row>
+ 				<b:column span="6" offset="3">
+ 					<b:inputText value="#{mbUser.ajoutUser.adresse}" placeholder="Adresse" required="true"/><br/>
+ 				</b:column>
+ 			</b:row>
+ 
+ 			<b:row>
+ 						<b:column span="2" offset="3">
+ 							<b:inputText value="#{mbVille.ville.codePostal}" placeholder="Code Postal"/></b:column><b:column span="4"><b:inputText value="#{mbVille.ville.nom}" placeholder="Ville"/><br/>
+ 						</b:column>
+ 					</b:row>
+			<b:row>
+ 				<b:column span="6" offset="3">
+ 					<b:commandButton action="#{mbUser.addUser()}" value="Valider" style="background-color :#565455; color:white" size="lg"> </b:commandButton>
+ 				</b:column>
+			</b:row>
+		</b:formGroup> 
+	</b:form>
+
+
+	</div>
+	</ui:define></ui:composition>
+	</h:body>
+</html>

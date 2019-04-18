@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+	<h:body>
+	
+	<f:metadata>
+		<f:viewParam name="id" value="#{mbArticle.sousCatSelect}"></f:viewParam>
+		<f:viewAction action="#{mbArticle.init()}"></f:viewAction>
+		<f:viewAction action="#{mbRetour.init()}"></f:viewAction>
+	</f:metadata>
+
+	<ui:composition template="/adminPage.xhtml"> <!-- modifier par /adminPage.xhtml pour avoir l'arche admin -->
+	<ui:define name="content" >
+	<div class="leftPage">
+
+		<b:row>
+ 			<b:column span="6" offset="3">
+ 				<h3 style="color: #35cbdf; font-family: Arial, sans-serif; font-size:50px" align="center"  >Détail de la commande</h3>
+ 			</b:column>
+		</b:row><br/>
+
+		<b:row>
+ 			<b:column span="6" offset="3">
+				<h4 style="color: #35cbdf; font-family: Arial, sans-serif; font-size:30px" align="center"  >
+ Prix total de la commande 
+ 					<h:outputText value="#{mbRetour.prixTotal}">
+						<f:convertNumber currencySymbol = "€" type = "currency"/>
+					</h:outputText>
+ 				</h4>
+ 			</b:column>
+ 		
+		</b:row><br/>
+		<b:row>
+		    <b:column span="3" offset="2"> 
+			    	<b:label value="#{mbRetour.msg}" style="color:red; font-family: Arial; font-size:13px; background-color:white" align="center" />
+			    </b:column>
+		</b:row>
+		<h:form>
+ 			<b:dataTable value="#{mbRetour.commandes}" selected-items="row" selectionMode="single"
+               			var="commande"  span="8" offset="2" info="false">
+    			<b:dataTableColumn label="image"><img src="img/#{commande.article.nomImage}" alt="photo" height="120px"/></b:dataTableColumn> 
+    			<b:dataTableColumn value="#{commande.article.nom}" />
+    			<b:dataTableColumn value="#{commande.quantite}" />
+    			<b:dataTableColumn label="Quantité de Retour" width="20" > 
+ 					<b:touchSpin value="#{commande.quantiteRetour}" min="-200" max="200" col-md="half" ></b:touchSpin></b:dataTableColumn>
+    		</b:dataTable>
+
+		
+			<b:row>
+				<b:column span="3" offset="2">
+ 					<b:link  value="Retour" href="javascript:history.go(-1)" styleClass="btn btn-primary" size="sm" />
+ 				</b:column>
+ 				<b:column span="3" offset="2">
+
+ 					<b:dateTimePicker value="#{mbRetour.dateRetour}"
+										icon-position="left"
+  										format="DD.MM.YYYY"
+  										placeholder="Date de fin"
+  										tooltip="Format date de fin dd.mm.yyyy" 
+  										tiny-screen="one-fourth"  required="true" required-message="Obligatoire" col-sm="6" offset-sm="3"/>
+ 					<b:commandButton value="Valider retour" look="primary"
+									style="width:100%" action="#{mbRetour.retourEvent()}" />
+
+ 				</b:column>
+			</b:row>
+		</h:form>
+		<br /><br /><br />
+
+	</div>
+	</ui:define>
+	</ui:composition>
+
+	</h:body>
+</html>

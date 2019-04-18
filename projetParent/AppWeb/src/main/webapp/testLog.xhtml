@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui"
+	>
+
+<h:body>
+
+<h:form>
+
+
+login<b:inputText value="#{mblogin.log}"/><br/>
+mdp<b:inputSecret value="#{mblogin.mdp}"/><br/>
+
+
+<h:commandButton action="#{mblogin.connexion()}" value="Valider" />
+
+<b:label value="#{mblogin.msg}"/>
+
+</h:form>
+
+</h:body>
+
+
+
+ 
+</html>

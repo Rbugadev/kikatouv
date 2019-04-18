@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+
+	<h:body>
+
+	<f:metadata>
+		<f:event listener="#{mbArticleStock.init()}" type="preRenderView"/>
+	</f:metadata>	
+
+
+	<ui:composition template="/adminPage.xhtml">
+	<ui:define name="content" >
+<div class="leftPage">
+
+
+<h3 style="color: #35cbdf; font-family: Arial, sans-serif; font-size:50px" align="center"  >
+	<h:outputText value="#{mbArticleStock.mouvementAdminMb.ajoutMouvement.typeMouvement.nom} : "/> 
+	<h:outputText value="#{mbAdminMouvement.ajoutMouvement.date}"> 
+		<f:convertDateTime pattern="dd/MM/yyyy"/> 
+	</h:outputText>
+	<h:outputText value=" - #{mbArticleStock.mouvementAdminMb.ajoutMouvement.description}"/>
+	
+</h3>
+ 
+<h:form>
+<br/>
+<!-- 
+  <b:link  value="Annuler" href="javascript:history.go(-1)" styleClass="btn btn-primary" size="sm" span="1" offset-sm="5" /> 
+-->
+  <b:commandButton action="#{mbArticleStock.annulationMvtRetour()}" value="Annuler"  look="primary" span="1" offset-sm="5" ></b:commandButton>
+
+   <b:commandButton action="#{mbArticleStock.addGlobal()}" value="Valider"  look="primary" span="1" offset-sm="0" ></b:commandButton>
+
+<br/><br/><br/> 
+  <b:dataTable value="#{mbArticleStock.articlesStock}"
+               var="articleStock" span="8" offset="2">
+               
+    <b:dataTableColumn value="#{articleStock.article.id}" width="10px" label="Référence"></b:dataTableColumn>
+    <b:dataTableColumn value="#{articleStock.article.nom}" width="10px" label="Libellé"></b:dataTableColumn>
+    <b:dataTableColumn value="#{articleStock.qtyStock}" width="10px" label="Stock théorique"></b:dataTableColumn>
+    <b:dataTableColumn value="#{articleStock.mvtCommande}" width="10px" label="Mvt Commande"></b:dataTableColumn>
+    <b:dataTableColumn value="#{articleStock.perte}" width="10px" label="Perte"></b:dataTableColumn>
+    <b:dataTableColumn value="#{articleStock.qtyStockDispo}" width="10px" label="Stock disponible"></b:dataTableColumn>
+  
+    <b:dataTableColumn label="Quantité" width="40" > 
+ 		<b:touchSpin value="#{articleStock.qty}" min="-200" max="200" col-md="full-size" ></b:touchSpin>
+    </b:dataTableColumn>
+    
+    <b:dataTableColumn label="Historique" width="10px"> 
+    	<b:commandButton  action="#{mbArticleStock.AccesHistoriqueStock(articleStock.article.id)}" value="Accès" tabindex="0"  
+    						data-toggle="popover" data-trigger="focus" title=""
+    						look="primary" size="xs">
+    	</b:commandButton>
+    </b:dataTableColumn>
+  
+  </b:dataTable>
+</h:form>
+    
+
+</div>
+</ui:define>
+</ui:composition>
+
+</h:body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+
+	<h:body>
+	<!-- Header -->
+	<ui:composition template="/arche.xhtml">
+		<ui:define name="content" >
+			<div class="centrePage">
+
+				<h:form>
+  					<b:dateTimePicker value="#{mbMessage.messageCurrent.date}" format="DD/MM/YYYY" label="Date"  />
+  					texte<b:inputText value="#{mbMessage.messageCurrent.texte}"/><br/>
+  					note<b:inputText value="#{mbMessage.messageCurrent.note}"/><br/>
+					<h:commandButton action="#{mbMessage.addMessage()}" value="Valider" />
+				</h:form>
+
+			</div>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+<!-- 
+<ui:repeat value="#{mbMessage.allMessage}" var="mess">
+	texte<b:inputText value="#{mess.texte}"/><br/>
+	date<b:inputText value="#{mess.date}"/><br/>
+	note<b:inputText value="#{mess.note}"/><br/>
+	article<b:inputText value="#{mess.article}"/><br/>
+</ui:repeat>
+ -->
+
+</html>

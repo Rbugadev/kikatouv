@@ -1,0 +1,16 @@
+INSERT INTO `ville` (id, nom, codePostal) VALUES (1, '1er arrondissement - Paris', '75001');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (2, '2ème arrondissement - Paris', '75002');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (3, '3ème arrondissement - Paris', '75003');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (4, '4ème arrondissement - Paris', '75004');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (5, '5ème arrondissement - Paris', '75005');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (6, '6ème arrondissement - Paris', '75006');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (7, '7ème arrondissement - Paris', '75007');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (8, '8ème arrondissement - Paris', '75008');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (9, '9ème arrondissement - Paris', '75009');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (10, '10ème arrondissement - Paris', '75010');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (11, '11ème arrondissement - Paris', '75011');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (12, '12ème arrondissement - Paris', '75012');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (13, '13ème arrondissement - Paris', '75013');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (14, '14ème arrondissement - Paris', '75014');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (15, '15ème arrondissement - Paris', '75015');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (16, '16ème arrondissement - Paris', '75016');

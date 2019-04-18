@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+    
+	<h:body>
+	
+	<f:metadata>
+		<f:event listener="#{mbAdminMouvement.init()}" type="preRenderView"/>
+	</f:metadata>	
+	
+	
+	<!-- Header -->
+	<ui:composition template="/adminPage.xhtml">
+		<ui:define name="content" >
+			<div class="leftPage">
+				<br/>
+				<br/>
+				<br/>
+				
+				<b:panel title="Création d'un nouveau mouvement" look="info" col-sm="6" offset-sm="3">
+
+
+
+				<!--  -->
+				<h:form>
+					<b:container fluid="true">
+					
+						<b:row>
+							<b:column medium-screen="2">
+								<h:outputText value="Date:" />
+							</b:column>
+							<b:column medium-screen="4">
+								<b:inputText placeholder="date"
+									value="#{mbAdminMouvement.ajoutMouvement.date}" readonly="true">
+									<f:convertDateTime pattern="dd/MM/yyyy" />									
+								</b:inputText>
+							</b:column>
+ 							<b:column medium-screen="6">
+								<b:message />
+							</b:column>
+							<br/>
+ 						</b:row>
+ 						
+						<b:row>
+							<b:column medium-screen="2">
+								<h:outputText value="Type Mouvement:" />
+							</b:column>
+							<b:column medium-screen="4">
+	 							<b:selectOneMenu value="#{mbAdminMouvement.ajoutMouvement.typeMouvement}"
+												 colMd="full-size" field-size="xs">
+									<f:selectItems value="#{mbAdminMouvement.allTypeMouvement}" var="t" itemValue="#{t}"
+												   itemLabel="#{t.nom}" />
+								</b:selectOneMenu>
+							</b:column>
+							<b:column medium-screen="6">
+								<b:message />
+							</b:column>
+						</b:row>
+						
+						<b:row>
+							<b:column medium-screen="2">
+								<h:outputText value="Description:" />
+							</b:column>
+							<b:column medium-screen="4">
+								<b:inputText placeholder="description"
+									value="#{mbAdminMouvement.ajoutMouvement.description}" />
+							</b:column>
+							<b:column medium-screen="6">
+								<b:message />
+							</b:column>
+						</b:row>
+						
+						<b:row>
+							<b:column span="2" offset="2">
+								<b:commandButton value="Valider" look="primary"
+									style="width:100%" action="#{mbAdminMouvement.addMouvement()}" />
+							</b:column>
+							</b:row>
+					</b:container>
+				</h:form>
+				<!--  -->
+
+
+
+					
+				</b:panel>
+
+			</div>
+		</ui:define>
+	</ui:composition>
+	</h:body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+
+	<h:body>
+
+<f:metadata>
+	<f:viewAction action="#{mbAdminMouvement.init()}"></f:viewAction>
+</f:metadata>	
+
+	<ui:composition template="/adminPage.xhtml">
+	<ui:define name="content" >
+<div class="leftPage">
+
+
+ 
+<h3 style="color: #35cbdf; font-family: Arial, sans-serif; font-size:50px" align="center"  >
+	<h:outputText value="Historique des mouvements : "/> 
+</h3>
+
+<br/>
+	<b:link  value="Retour" href="javascript:history.go(-1)" styleClass="btn btn-primary" size="sm"  span="1" offset-sm="4" /> 
+	<b:link  value="création Mouvement" href="/AppWeb/faces/ajoutMouvement.xhtml" styleClass="btn btn-primary" size="sm" span="2" offset-sm="1" /> 
+	<br/><br/><br/> 
+<h:form>
+  <b:dataTable value="#{mbAdminMouvement.mouvements}"
+               var="mouvement" span="8" offset="2">
+               
+    <b:dataTableColumn value="#{mouvement.id}" label="Article" width="10px"></b:dataTableColumn>
+    <b:dataTableColumn value="#{mouvement.date}" label="Date mouvement" width="10px" order="asc"></b:dataTableColumn>
+   	<b:dataTableColumn value="#{mouvement.description}" label="Description" width="10px"></b:dataTableColumn>
+    <b:dataTableColumn value="#{mouvement.typeMouvement.nom}" label="Type mouvement" width="10px"></b:dataTableColumn>
+    <b:dataTableColumn label="Acces" width="10px"> 
+ 		<b:button href="/AppWeb/faces/mouvementDetail.xhtml?id=#{mouvement.id}" value="Détails" 
+						look="primary" size="xs">
+		</b:button>
+	</b:dataTableColumn>
+  </b:dataTable>
+</h:form>
+
+
+</div>
+</ui:define>
+</ui:composition>
+
+</h:body>
+</html>

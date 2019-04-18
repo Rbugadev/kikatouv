@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+
+	<h:body>
+		<script type= "text/javascript" src="accueil.js"></script>
+			<f:metadata>
+				<f:viewParam name="id" value="#{mbArticle.sousCatSelect}"></f:viewParam>				
+				<f:event listener="#{mbArticle.init()}" type="preRenderView"/>
+				<f:event listener="#{mbcommande.init()}" type="preRenderView"/>
+					<f:viewAction action="#{mbcommande.init()}"></f:viewAction>
+			</f:metadata>	
+
+			<ui:composition template="/arche.xhtml"><ui:define name="content" >
+				<div class="leftPage">
+				<br/><br/><br/>
+
+				<h:form>
+				<h3 style="color: #35cbdf; font-family: Arial, sans-serif; font-size:40px" align="center"  >
+	<h:outputText value="Dans la catégorie: "/> #{mbArticle.sousCatS} 
+</h3> <br/><br/>
+<b:row><b:column span="4" offset="6"> <b:label value="#{mbArticle.msgE}" style="color:red; font-family: Arial; font-size:13px; background-color:white" align="center"></b:label></b:column></b:row>
+				
+
+<b:panel style="border-color:white">
+  				<b:dataTable id="example" value="#{mbArticle.allArticleById}" var="article" span="8" offset="2">
+					<b:dataTableColumn ><f:facet name="header">Articles</f:facet> <img src="img/#{article.nomImage}" alt="photo" height="120px"/><br/>
+						<b:button href="/AppWeb/faces/articleDetail.xhtml?id=#{article.id}" value="Détails" 
+						look="primary" size="xs"></b:button>
+					</b:dataTableColumn>
+    				
+    				<b:dataTableColumn value="#{article.nom}" width="50px"> 
+    				</b:dataTableColumn>
+    				
+					<b:dataTableColumn>
+						<f:facet name="header"><h:outputText value="Prix"/></f:facet>
+						<h:outputText value="#{article.prix}">
+						<f:convertNumber currencySymbol = "€" type = "currency"/>
+						</h:outputText>
+				 	</b:dataTableColumn>
+    				   				
+    				<b:dataTableColumn label="Quantité" width="10px"> 
+
+    					<b:touchSpin value="#{article.quantite}" min="0" max="200" col-md="half"></b:touchSpin>
+    					<b:commandButton  action="#{mbArticle.addCommande(article.id, article.quantite)}" value="Ajouter" tabindex="0"  
+    						data-toggle="popover" data-trigger="focus" title="Vous devez vous connecter pour ajouter des articles dans votre panier"
+    						look="primary" size="xs">
+    					</b:commandButton>
+    					
+    				
+    					
+    				</b:dataTableColumn>
+  				</b:dataTable>	
+  				
+  				</b:panel>
+				</h:form>
+					
+				<b:row>
+				<b:column span="3" offset="2">
+ 				<b:link  value="Retour" href="javascript:history.go(-1)" styleClass="btn btn-primary" size="sm" /> </b:column>
+				</b:row>
+				<br/><br/>
+				
+				</div>	
+			</ui:define></ui:composition>
+	</h:body>
+</html>

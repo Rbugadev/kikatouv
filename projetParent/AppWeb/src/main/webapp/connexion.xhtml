@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui">
+
+<h:body>
+
+	<ui:composition template="/arche.xhtml">
+		<ui:define name="content">
+			<div class="leftPage">
+			<br/>
+			<br/>
+			<br/>
+
+				<!--  -->
+				<h:form>
+					<b:container fluid="true">
+						
+						<!-- Saisie Identifiant -->
+						<b:row>
+ 				<b:column span="5" offset="3">
+ 				<h3 style="color: #35cbdf; font-family: Arial, sans-serif; font-size:50px" align="center"  >Connexion</h3></b:column>
+			</b:row>	
+						<br/>
+			<br/>
+						<b:row>
+							
+							<b:column medium-screen="4" offset-sm="4" span="3">
+								<b:inputText placeholder="identifiant" value="#{mblogin.log}"
+									required="true">
+									<f:facet name="prepend">
+										<b:icon name="user" />
+									</f:facet>
+								</b:inputText>
+
+							</b:column>
+							<b:column medium-screen="6">
+								<b:message />
+							</b:column>
+						</b:row>
+						
+						<!--  Saisie Mot de passe  -->
+						
+						<b:row>
+						
+							<b:column medium-screen="4" offset-sm="4" span="3">
+								<b:inputSecret placeholder="Mot de passe" value="#{mblogin.mdp}">
+									<f:facet name="prepend">
+										<b:iconAwesome name="key" />
+									</f:facet>
+								</b:inputSecret>
+							</b:column>
+							<b:column medium-screen="6">
+								<b:message />
+							</b:column>
+						</b:row>
+						<b:row><b:column span="4" offset="4"> <b:label value="#{mblogin.msg}" style="color:red; font-family: Arial; font-size:13px; background-color:white" align="center"></b:label></b:column></b:row>
+						<!--  bouton valider -->
+						<br/>
+						<b:row>
+						 <b:column span="4" offset="5">
+						<a href="/AppWeb/faces/inscription.xhtml">Pas encore inscrit ?</a> 
+						</b:column>
+						</b:row>
+						<br/>
+						<b:row>
+							<b:column span="1" offset="5">
+								<b:commandButton value="Valider" look="primary"
+									style="width:100%" action="#{mblogin.connexion()}" />
+							</b:column>
+						</b:row>
+					</b:container>
+				</h:form>
+
+				<!--  -->
+
+			</div>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

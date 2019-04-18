@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+	<h:body>
+		<f:metadata> 
+			<f:viewParam name="id" value="#{mbArticle.idArticle}"/> 	
+			<f:event listener="#{mbArticle.init()}" type="preRenderView"></f:event>
+		</f:metadata>
+
+		<ui:composition template="/arche.xhtml">
+			<ui:define name="content" >
+				<div class="leftPage">
+				<section class="info-section col-sm-8 offset-sm-2" >
+				
+				<div class="panel panel-content" style="background-color:  #DEDEDE; opacity:1;">
+				<div class="container">
+				<div class="row" align="center">
+					<ui:repeat value="#{mbArticle.articleD}" var="art">
+						<div class="col-lg-12 col-md-6 col-sm-6">
+						<div class="service-block-overlay text-center mb-5 p-lg-3">
+			
+						<b:panelGrid columns="1" style="relative:center" >	
+							<div class="head-box text-center mb-5">
+								<h2>#{mbArticle.articleD.nom}</h2>
+							</div>
+	            			<img src="img/#{art.nomImage}" height="400px"/>
+					 		<h4 class="text-underline-primary">#{mbArticle.articleD.description}</h4>
+	        			</b:panelGrid>
+	        			</div></div>
+	       
+						<b:dataTable value="#{mbArticle.articleD.messages}" var="msg"  col-sm="11"  style="background-color: #ECECEC">
+		<b:dataTableColumn value="#{msg.note}" ><span class="glyphicon glyphicon-star-empty"/></b:dataTableColumn>
+		<b:dataTableColumn value="#{msg.texte}"></b:dataTableColumn>
+		<b:dataTableColumn value="#{msg.date}"></b:dataTableColumn>
+		
+		</b:dataTable>
+	       
+		</ui:repeat>
+		</div>
+		
+		
+		</div>	
+		
+		
+		<br/>
+		<br/>
+	<h:form>
+	
+	<b:panel>
+				<b:row> <b:column span="5" offset="3" > <h:outputLabel value="Donnez nous votre avis sur ce produit (0-5)" /> </b:column></b:row>
+  				<b:row> <b:column span="1" offset="3" >	<b:inputText value="#{mbMessage.messageCurrent.note}" required="true" /></b:column></b:row>
+  				<b:row> <b:column span="6" offset="3">	<b:inputTextarea value="#{mbMessage.messageCurrent.texte}"  required="true" placeholder="Commentaire"/> </b:column></b:row>
+  				<b:row><b:column span="4" offset="4"> <b:label value="#{mbMessage.msg}" style="color:red; font-family: Arial; font-size:13px; background-color:white" align="center"></b:label></b:column></b:row>
+						<!--  bouton valider -->
+				<b:row> <b:column span="6" offset="3">	<h:commandButton action="#{mbMessage.addMessage(mbArticle.articleD.id)}" value="Valider" styleClass="btn btn-primary"/> </b:column></b:row>
+	</b:panel>
+				</h:form>		
+				</div>
+				
+				<h:form>						
+					<b:link  value="Retour" href="javascript:history.go(-1)" styleClass="btn btn-primary" size="sm" />
+				</h:form>	
+				</section>
+
+</div>
+</ui:define>
+</ui:composition>
+
+</h:body>
+</html>

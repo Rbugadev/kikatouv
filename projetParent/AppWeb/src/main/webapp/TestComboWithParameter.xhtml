@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui"
+	
+        xmlns:f="http://java.sun.com/jsf/core">
+	
+	<body>
+	
+	<b:form horizontal="true">
+  <b:formGroup>
+    <b:selectOneMenu value="#{mbArticle.allArticleById}" colMd="2" label="Article" labelColMd="2">
+      <f:selectItems value="#{mbArticle.allArticleById}" var="a" itemValue="#{a}" itemLabel="#{a}"/>
+    </b:selectOneMenu>
+  </b:formGroup>
+ 
+  
+</b:form>
+
+
+
+	</body>
+
+</html>
+
+<!--  public SemaphoreBean() {
+    colors = Arrays.asList("green", "yellow", "red");
+    meanings = new HashMap<>();
+    meanings.put("go", "green");
+    meanings.put("be alert", "yellow");
+    meanings.put("stop", "red");
+  } -->

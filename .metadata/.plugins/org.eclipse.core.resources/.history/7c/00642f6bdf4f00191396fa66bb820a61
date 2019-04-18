@@ -1,0 +1,33 @@
+package Entities;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="article")
+public class Article implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id", nullable=false)
+	private Integer id;
+	
+	@Column(name="nom")
+    private String nom;
+	
+	@Column(name="description")
+	private String description;
+	
+	//AJOUTER NomImage - PRIX???
+	
+	//TODO: RELATION AVEC SOUS CATEGORIE GETTER AND SETTERS + CONSTRUCTEURS + TO STRING
+
+}

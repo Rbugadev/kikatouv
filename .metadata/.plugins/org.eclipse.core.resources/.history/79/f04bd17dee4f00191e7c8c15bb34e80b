@@ -1,0 +1,134 @@
+package Entities;
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="article")
+public class Article implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id", nullable=false)
+	private Integer id;
+	
+	@Column(name="nom")
+    private String nom;
+	
+	@Column(name="description")
+	private String description;
+	
+	@Column(name="nomImage")
+	private String nomImage;
+	
+	@Column(name="prix")
+	private String prix;
+	
+	@ManyToOne
+	@JoinColumn(referencedColumnName="id")
+    private SousCategorie SousCategorie;
+	
+	@OneToMany(mappedBy="article",cascade=CascadeType.ALL)
+	private List<Commande> commandes ;
+	
+	@OneToMany(mappedBy="article",cascade=CascadeType.ALL)
+	private List<RetourLocation> retourLocations;
+	
+	@OneToMany(mappedBy="article",cascade=CascadeType.ALL)
+	private List<Message> messages;
+	
+	@OneToMany(mappedBy="article",cascade=CascadeType.ALL)
+	private List<MajStock> majStocks;
+	
+	
+
+	
+//GETTERS AND SETTERS
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getNomImage() {
+		return nomImage;
+	}
+
+	public void setNomImage(String nomImage) {
+		this.nomImage = nomImage;
+	}
+
+	public String getPrix() {
+		return prix;
+	}
+
+	public void setPrix(String prix) {
+		this.prix = prix;
+	}
+
+	public SousCategorie getSousCategorie() {
+		return SousCategorie;
+	}
+
+	public void setSousCategorie(SousCategorie sousCategorie) {
+		SousCategorie = sousCategorie;
+	}
+
+//CONSTRUCTEURS
+	public Article(Integer id, String nom, String description, String nomImage, String prix,
+			Entities.SousCategorie sousCategorie) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.description = description;
+		this.nomImage = nomImage;
+		this.prix = prix;
+		SousCategorie = sousCategorie;
+	}
+
+	public Article() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+//TOSTRING
+	@Override
+	public String toString() {
+		return "Article [id=" + id + ", nom=" + nom + ", description=" + description + ", nomImage=" + nomImage
+				+ ", prix=" + prix + ", SousCategorie=" + SousCategorie + "]";
+	}
+	
+	
+
+}

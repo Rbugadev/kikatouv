@@ -1,0 +1,41 @@
+INSERT INTO `ville` (id, nom, codePostal) VALUES (1, '1er arrondissement - Paris', '75001');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (2, '2ème arrondissement - Paris', '75002');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (3, '3ème arrondissement - Paris', '75003');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (4, '4ème arrondissement - Paris', '75004');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (5, '5ème arrondissement - Paris', '75005');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (6, '6ème arrondissement - Paris', '75006');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (7, '7ème arrondissement - Paris', '75007');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (8, '8ème arrondissement - Paris', '75008');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (9, '9ème arrondissement - Paris', '75009');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (10, '10ème arrondissement - Paris', '75010');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (11, '11ème arrondissement - Paris', '75011');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (12, '12ème arrondissement - Paris', '75012');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (13, '13ème arrondissement - Paris', '75013');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (14, '14ème arrondissement - Paris', '75014');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (15, '15ème arrondissement - Paris', '75015');
+INSERT INTO `ville` (id, nom, codePostal) VALUES (16, '16ème arrondissement - Paris', '75016');
+
+INSERT INTO `user` (id, nom, prenom, dateDeNaissance, numTelPortable, numTelFixe, adresseMail, adresse, dateInscription, dateDesinscription, login, password, ville_id) VALUES (1, 'DUPOND', 'Jérémie', '1975-01-25','0612325465','0244325465','j.dupond@mail.fr','28 Allée Verte','2018-08-12',null, 'jdupond', 'dupond',1);
+INSERT INTO `user` (id, nom, prenom, dateDeNaissance, numTelPortable, numTelFixe, adresseMail, adresse, dateInscription, dateDesinscription, login, password, ville_id) VALUES (2, 'BERRA', 'Claire', '1985-10-05','0613325465','0244225465','c.berra@mail.fr','2 Rue du Général Leclerc','2018-08-01',null, 'cberra', 'berra',1);
+INSERT INTO `user` (id, nom, prenom, dateDeNaissance, numTelPortable, numTelFixe, adresseMail, adresse, dateInscription, dateDesinscription, login, password, ville_id) VALUES (3, 'MARCHAND', 'Michel', '1963-11-15','0614325465','0244125465','m.marchand@mail.fr','28 Rue de la République','2018-07-03',null, 'mmarchand', 'marchand',2);
+INSERT INTO `user` (id, nom, prenom, dateDeNaissance, numTelPortable, numTelFixe, adresseMail, adresse, dateInscription, dateDesinscription, login, password, ville_id) VALUES (4, 'DUPUIS', 'Mathilde', '1972-08-16','0615325465','0244425465','m.dupuis@mail.fr','28 Rue Vivaldi','2018-07-16',null, 'mdupuis', 'dupuis',2);
+INSERT INTO `user` (id, nom, prenom, dateDeNaissance, numTelPortable, numTelFixe, adresseMail, adresse, dateInscription, dateDesinscription, login, password, ville_id) VALUES (5, 'Administrateur', '', '1972-08-16','0615325465','0244425465','admin@mail.fr','28 Rue Vivaldi','2018-07-16',null, 'admin', 'admin',null);
+
+INSERT INTO `user` (id, nom, prenom, dateDeNaissance, numTelPortable, numTelFixe, adresseMail, adresse, dateInscription, dateDesinscription, login, password, ville_id) VALUES (6, 'Boulanger', 'Romain', '1975-01-25','0618825465','0288325465','r.boulanger@mail.fr','42 Allée Verte','2018-08-12',null, 'rboulanger', 'boulanger',6);
+INSERT INTO `user` (id, nom, prenom, dateDeNaissance, numTelPortable, numTelFixe, adresseMail, adresse, dateInscription, dateDesinscription, login, password, ville_id) VALUES (7, 'Lechat', 'Cindy', '1986-10-05','0613995465','0144225465','c.lechat@mail.fr','26 Rue Leclerc','2018-08-01',null, 'clechat', 'lechat',5);
+INSERT INTO `user` (id, nom, prenom, dateDeNaissance, numTelPortable, numTelFixe, adresseMail, adresse, dateInscription, dateDesinscription, login, password, ville_id) VALUES (8, 'Breton', 'Romuald', '1964-11-15','061425465','0144335465','r.breton@mail.fr','8 Rue de la République','2018-07-03',null, 'rbreton', 'breton',6);
+INSERT INTO `user` (id, nom, prenom, dateDeNaissance, numTelPortable, numTelFixe, adresseMail, adresse, dateInscription, dateDesinscription, login, password, ville_id) VALUES (9, 'Durand', 'Yohann', '1972-08-26','0617825465','0247725465','y.durand@mail.fr','2 Rue Vivaldi','2018-07-16',null, 'ydurand', 'durand',4);
+INSERT INTO `user` (id, nom, prenom, dateDeNaissance, numTelPortable, numTelFixe, adresseMail, adresse, dateInscription, dateDesinscription, login, password, ville_id) VALUES (10, 'Hoquet', 'Gisèle', '1962-01-16','0615324765','0165425465','g.hoquet@mail.fr','15 Rue Alesia','2018-07-16',null, 'ghoquet', 'hoquet',3);
+
+INSERT INTO `user` (id, nom, prenom, dateDeNaissance, numTelPortable, numTelFixe, adresseMail, adresse, dateInscription, dateDesinscription, login, password, ville_id) VALUES (11, 'Moreau', 'Lisa', '1982-12-25','0618825433','0188325115','l.moreau@mail.fr','12 rue des champs','2018-08-12',null, 'lmoreau', 'moreau',7);
+INSERT INTO `user` (id, nom, prenom, dateDeNaissance, numTelPortable, numTelFixe, adresseMail, adresse, dateInscription, dateDesinscription, login, password, ville_id) VALUES (12, 'Richard', 'Georges', '1986-03-18','0613995477','0144225775','g.richard@mail.fr','06 Rue Division Leclerc','2018-08-01',null, 'grichard', 'richard',7);
+INSERT INTO `user` (id, nom, prenom, dateDeNaissance, numTelPortable, numTelFixe, adresseMail, adresse, dateInscription, dateDesinscription, login, password, ville_id) VALUES (13, 'Roy', 'Roger', '1974-11-15','061425488','0144335885','r.roger@mail.fr','86 Rue de la République','2018-07-03',null, 'rroy', 'roy',6);
+INSERT INTO `user` (id, nom, prenom, dateDeNaissance, numTelPortable, numTelFixe, adresseMail, adresse, dateInscription, dateDesinscription, login, password, ville_id) VALUES (14, 'Collin', 'Liliane', '1972-08-26','0617825995','0247725995','l.collin@mail.fr','2 Rue de Stalingrad','2018-07-16',null, 'lcollin', 'collin',4);
+INSERT INTO `user` (id, nom, prenom, dateDeNaissance, numTelPortable, numTelFixe, adresseMail, adresse, dateInscription, dateDesinscription, login, password, ville_id) VALUES (15, 'Martinez', 'Solange', '1962-04-16','0615324744','0175425445','m.solange@mail.fr','15 Rue Alesia','2018-07-16',null, 'smartinez', 'martinez',8);
+
+
+INSERT INTO `categorie`(id,nom) VALUES (1,'Mobilier')
+INSERT INTO `categorie`(id,nom) VALUES (2,'Décoration')
+INSERT INTO `categorie`(id,nom) VALUES (3,'Sono')
+INSERT INTO `categorie`(id,nom) VALUES (4,'Vidéo')
+INSERT INTO `categorie`(id,nom) VALUES (5,'Divers')

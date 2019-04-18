@@ -1,0 +1,77 @@
+package Entities;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="sousCategorie")
+public class SousCategorie implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id", nullable=false)
+	private Integer id;
+	
+	@Column(name="nom")
+    private String nom;
+
+	@ManyToOne
+	@JoinColumn(referencedColumnName="id")
+    private Categorie idCategorie;
+
+//GETTERS AND SETTERS
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public Categorie getCategorie() {
+		return idCategorie;
+	}
+
+	public void setCategorie(Categorie idCategorie) {
+		this.idCategorie = idCategorie;
+	}
+
+//CONSTRUCTEURS
+	public SousCategorie(Integer id, String nom, Categorie idCategorie) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.idCategorie = idCategorie;
+	}
+
+	public SousCategorie() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+//TO STRING
+	@Override
+	public String toString() {
+		return "SousCategorie [id=" + id + ", nom=" + nom + ", categorie=" + idCategorie + "]";
+	}
+	
+	
+}

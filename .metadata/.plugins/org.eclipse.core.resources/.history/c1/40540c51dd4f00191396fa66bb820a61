@@ -1,0 +1,1 @@
+INSERT INTO `ville` (id, nom, codePostal) VALUES (1, '1er arrondissement - Paris', '75001');

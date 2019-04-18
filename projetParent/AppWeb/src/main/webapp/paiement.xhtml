@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+    
+
+	
+
+
+	<h:body>
+	
+
+	<ui:composition template="/arche.xhtml"> <!-- modifier par /adminPage.xhtml pour avoir l'arche admin -->
+	<ui:define name="content" >
+<div class="leftPage">
+
+<h:form>
+<b:row><b:column span="3" offset="3">
+<img src="img/paiement.jpg" alt="logo" width="450px" />
+<br/>
+</b:column></b:row>
+<b:row><b:column span="7" offset="3">Montant de la transaction  #{mbcommande.prixTotal}€</b:column></b:row>
+<br/>
+
+<br/>
+<b:row><b:column span="4" offset="3">N° de carte Bancaire <span></span> <h:inputText  size="20"/> </b:column> </b:row> <br/>
+<b:row><b:column span="4" offset="3">Date d'expiration <b:label value="lkjj" style="color:white; background-color:white"></b:label> <h:inputText size="1" placeholder="08"/> / <h:inputText size="2" placeholder="2019"/></b:column></b:row> <br/>
+<b:row><b:column span="4" offset="3">Code de vérification <h:inputText  size="3" placeholder="000"/></b:column></b:row><br/>
+<!--  -->
+<b:row><b:column span="4" offset="3"><h:commandButton  value="Payer" action="#{mbcommande.ajoutDateValidation()}" styleClass="btn btn-success"></h:commandButton></b:column></b:row>
+<!--  -->
+<b:row><b:column span="4" offset="3"><label >#{mbcommande.msg}</label></b:column></b:row>
+</h:form>
+
+</div>
+</ui:define>
+</ui:composition>
+
+</h:body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+    
+
+	
+
+
+	<h:body>
+	
+<f:metadata>
+	<f:viewParam name="id" value="#{mbArticle.sousCatSelect}"></f:viewParam>
+	<f:viewAction action="#{mbArticle.init()}"></f:viewAction>
+	<f:viewAction action="#{mbUser.init()}"></f:viewAction>
+</f:metadata>
+
+	<ui:composition template="/adminPage.xhtml"> <!-- modifier par /adminPage.xhtml pour avoir l'arche admin -->
+	<ui:define name="content" >
+<div class="leftPage">
+
+
+<br/>
+<b:row>
+ <b:column span="6" offset="3">
+ <h3 style="color: #35cbdf; font-family: Arial, sans-serif; font-size:50px" align="center"  >Historique des événements de <br/>
+  <h5 style="color: #35cbdf; font-family: Arial, sans-serif; font-size:30px" align="center">#{mbUser.userEvent.nom} #{mbUser.userEvent.prenom}</h5></h3></b:column>
+</b:row>
+<br/>
+
+
+<h:form>
+ <b:dataTable value="#{mbUser.events}" selected-items="row" selectionMode="single"
+               var="event"  span="8" offset="2" info="false">
+
+	<b:dataTableColumn order="asc">
+		<f:facet name="header"><h:outputText value="Date Validation"/></f:facet>
+		<h:outputText value="#{event.dateValidation}">
+			<f:convertDateTime pattern="#{mbUser.DATE_FORMAT}" />									
+		</h:outputText>
+	</b:dataTableColumn>
+
+	<b:dataTableColumn>
+		<f:facet name="header"><h:outputText value="Début"/></f:facet>
+		<h:outputText value="#{event.dateDebut}">
+			<f:convertDateTime pattern="#{mbUser.DATE_FORMAT}" />									
+		</h:outputText>
+	</b:dataTableColumn>
+	
+	<b:dataTableColumn>
+		<f:facet name="header"><h:outputText value="Fin"/></f:facet>
+		<h:outputText value="#{event.dateFin}">
+			<f:convertDateTime pattern="#{mbUser.DATE_FORMAT}" />									
+		</h:outputText>
+	</b:dataTableColumn>
+	
+ 
+	
+    <b:dataTableColumn value="#{event.rueLivraison}" label="Adresse livraison"/>
+    
+       	<b:dataTableColumn>
+		<f:facet name="header"><h:outputText value="Retour"/></f:facet>
+		<h:outputText value="#{event.dateRetour}">
+			<f:convertDateTime pattern="#{mbUser.DATE_FORMAT}" />									
+		</h:outputText>
+	</b:dataTableColumn>
+    
+     <b:dataTableColumn label="" width="10px" > 
+    							<b:commandButton value="commande" look="primary"
+									style="width:100%" action="#{mbUser.commandeByIdEvent(event.id)}" />
+    </b:dataTableColumn>
+    
+  </b:dataTable>
+</h:form>
+ <b:row>
+<b:column span="3" offset="2">
+ <b:link  value="Retour" href="javascript:history.go(-1)" styleClass="btn btn-primary" size="sm" /> </b:column>
+</b:row>
+</div>
+</ui:define>
+</ui:composition>
+
+</h:body>
+</html>

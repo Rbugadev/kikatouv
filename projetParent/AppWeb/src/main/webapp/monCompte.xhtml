@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+	
+	<h:body>
+	<ui:composition template="/arche.xhtml">
+	<ui:define name="content" >
+		<div class="leftPage">
+			<b:form>
+			<br/>
+			<b:row>
+ 				<b:column span="6" offset="3">
+ 				<h3 style="color: #35cbdf; font-family: Arial, sans-serif; font-size:50px" align="center"  >Mon Compte</h3></b:column>
+			</b:row>	
+	
+			<b:row>
+ 				<b:column span="6" offset="3" ><br/>
+ 					<h:outputLabel value="Informations de connexion" style="font-family: Arial, sans-serif; font-size:20px;"/><br/>	
+				</b:column>
+			</b:row>
+			<br/>
+			
+			<b:formGroup>	
+			<b:row>
+ 				<b:column span="6" offset="3">
+ 					<b:inputText label="adressemail" value="#{mbMonCompte.majUser.adresseMail}" placeholder="#{mbMonCompte.majUser.adresseMail}" required="true"/><br/>
+ 				</b:column>
+ 			</b:row>
+
+			<b:row>
+ 				<b:column span="6" offset="3">
+ 					<b:inputText label="identifiant" value="#{mbMonCompte.majUser.login}" placeholder="#{mbMonCompte.majUser.login}" required="true"/><br/>
+ 				</b:column>
+		 	</b:row>
+
+			<b:row>
+ 				<b:column span="6" offset="3">
+ 					<b:inputSecret label="Mot de passe" value="#{mbMonCompte.majUser.password}" placeholder="#{mbMonCompte.majUser.password}" required="true"/><br/>
+ 				</b:column>
+ 			</b:row>
+ 
+			<b:row>
+ 				<b:column span="6" offset="3">
+ 					<b:inputSecret label="confirmation" placeholder="Confirmer votre mot de passe" required="true"/><br/>
+ 				</b:column>
+ 			</b:row>
+
+			<b:row>
+ 				<b:column span="6" offset="3"><br/>
+ 					<h:outputLabel value="Informations de connexion" style="font-family: Arial, sans-serif; font-size:20px"/><br/>	
+				</b:column>
+			</b:row>
+
+			<b:row>
+ 				<b:column span="6" offset="3">
+ 					<b:inputText label="Nom" value="#{mbMonCompte.majUser.nom}" placeholder="#{mbMonCompte.majUser.nom}" required="true"/><br/>
+ 				</b:column>
+ 			</b:row>
+
+			<b:row>
+ 				<b:column span="6" offset="3">
+ 					<b:inputText label="Prénom" value="#{mbMonCompte.majUser.prenom}" placeholder="#{mbMonCompte.majUser.prenom}" required="true"/><br/>
+ 				</b:column>
+ 			</b:row>
+ 			
+ 			<b:form><b:row>
+				<b:column span="6" offset="3">
+					<b:dateTimePicker mode="toggle-icon" label=""
+									show-icon="true"
+									placeholder="#{mbMonCompte.majUser.dateDeNaissance}"
+									value="#{mbMonCompte.majUser.dateDeNaissance}"
+									required="true" format="DD.MM.YYYY" />
+     			</b:column>
+			</b:row></b:form> <br/>
+
+			<b:row>
+ 				<b:column span="6" offset="3">
+ 					<b:inputText label="Numéro de portable" value="#{mbMonCompte.majUser.numTelPortable}" placeholder="#{mbMonCompte.majUser.numTelPortable}"/><br/>
+ 				</b:column>
+ 			</b:row>
+
+			<b:row>
+ 				<b:column span="6" offset="3">
+					<b:inputText lable="Numéro de téléphone" value="#{mbMonCompte.majUser.numTelFixe}" placeholder="#{mbMonCompte.majUser.numTelFixe}"/><br/>
+				</b:column>
+			</b:row>
+
+			<b:row>
+ 				<b:column span="6" offset="3">
+ 					<b:inputText lable="Adresse" value="#{mbMonCompte.majUser.adresse}" placeholder="#{mbMonCompte.majUser.adresse}"/><br/>
+ 				</b:column>
+ 			</b:row>
+ 
+ 			<b:row>
+ 				<b:column span="6" offset="3">
+ 					<b:inputText lable="Code postale" value="#{mbMonCompte.majUser.ville.codePostal}" placeholder="#{mbMonCompte.majUser.ville.codePostal}"/><br/>
+ 				</b:column>
+ 			</b:row>
+ 		
+ 			<b:row>
+ 				<b:column span="6" offset="3">
+ 					<b:inputText label="Ville" value="#{mbMonCompte.majUser.ville.nom}" placeholder="#{mbMonCompte.majUser.ville.nom}"/><br/>
+ 				</b:column>
+ 			</b:row>
+ 		<!-- TODO AFFICHER LISTE VILLE -->
+ 
+			<b:row>
+ 				<b:column span="6" offset="3">
+					<b:commandButton action="#{mbMonCompte.majUser()}" value="Modifier" style="width 100%" look="primary" size="lg"> </b:commandButton>
+ 				</b:column>
+			</b:row>
+		</b:formGroup> 
+	</b:form>
+
+
+	</div>
+	</ui:define></ui:composition>
+	</h:body>
+</html>

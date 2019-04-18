@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+
+
+	<h:body>
+	
+
+	<ui:composition template="/adminPage.xhtml">
+	<ui:define name="content" >
+<div class="leftPage">
+
+<b:row>
+ <b:column span="6" offset="3">
+ <h3 style="color: #35cbdf; font-family: Arial, sans-serif; font-size:50px" align="center"  >Liste de nos clients</h3></b:column>
+</b:row>
+<br/>
+
+<h:form>
+<b:dataTable value="#{mbUser.users}" var="client" span="8" offset="2">
+<b:dataTableColumn value="#{client.nom}"><br/>#{client.prenom}</b:dataTableColumn>
+<b:dataTableColumn>
+	<f:facet name="header"><h:outputText value="Date de Naissance"/></f:facet>
+	<h:outputText value="#{client.dateDeNaissance}">
+		<f:convertDateTime pattern="#{mbUser.DATE_FORMAT}" />									
+	</h:outputText>
+</b:dataTableColumn>
+<b:dataTableColumn value="mail: #{client.adresseMail}" label="Coordonnées"><br/><br/>Portable: #{client.numTelPortable}<br/><br/>Fixe: #{client.numTelFixe}</b:dataTableColumn>
+<b:dataTableColumn value="#{client.adresse}"><br/>#{client.ville}</b:dataTableColumn>
+<b:dataTableColumn>
+	<f:facet name="header"><h:outputText value="Date d'inscription"/></f:facet>
+	<h:outputText value="#{client.dateInscription}">
+		<f:convertDateTime pattern="#{mbUser.DATE_FORMAT}" />									
+	</h:outputText>
+</b:dataTableColumn>
+
+    <b:dataTableColumn label="" width="10px" > 
+    							<b:commandButton value="ses événements" look="primary"
+									style="width:100%" action="#{mbUser.eventByIdUser(client.id)}" />
+    </b:dataTableColumn>
+</b:dataTable>
+</h:form>
+
+</div>
+</ui:define>
+</ui:composition>
+
+</h:body>
+</html>

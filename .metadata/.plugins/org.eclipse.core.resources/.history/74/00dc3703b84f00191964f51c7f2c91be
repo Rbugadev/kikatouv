@@ -1,0 +1,16 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>projetUn</groupId>
+  <artifactId>projetParent</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+  <modules>
+  	<module>Entity</module>
+  	<module>IDao</module>
+  	<module>Dao</module>
+  	<module>IBusiness</module>
+  	<module>Business</module>
+  	<module>AppWeb</module>
+  	<module>ProjetEAR</module>
+  </modules>
+</project>

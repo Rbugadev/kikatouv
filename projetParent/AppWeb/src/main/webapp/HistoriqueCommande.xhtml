@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+
+	<h:body>
+<f:metadata>
+	<f:viewParam name="id" value="#{mbArticle.sousCatSelect}"></f:viewParam>
+	<f:viewAction action="#{mbArticle.init()}"></f:viewAction>
+</f:metadata>	
+
+	<ui:composition template="/arche.xhtml">
+	<ui:define name="content" >
+<div class="leftPage">
+
+<b:row>
+	<b:column span="6" offset="3">
+ 	<h3 style="color: #35cbdf; font-family: Arial, sans-serif; font-size:50px" align="center"  >Détail de ma commande</h3></b:column>
+</b:row>
+<br/>
+<b:row>
+	<b:column span="6" offset="3">
+	<h4 style="color: #35cbdf; font-family: Arial, sans-serif; font-size:30px" align="center"  >
+ Prix total de la commande 
+ 		<h:outputText value="#{mbHisto.prixTotal}">
+			<f:convertNumber currencySymbol = "€" type = "currency"/>
+		</h:outputText>
+ 	</h4>
+	</b:column>
+</b:row>
+<br/>
+
+<h:form>
+	<b:panel style="border-color:white">
+	<b:dataTable value="#{mbHisto.commandes}" selected-items="row" selectionMode="single"
+    	           var="commande"  span="8" offset="2" info="false">
+    	<b:dataTableColumn label="image"><img src="img/#{commande.article.nomImage}" alt="photo" height="120px"/></b:dataTableColumn> 
+    	<b:dataTableColumn value="#{commande.article.nom}" />
+    	<b:dataTableColumn value="#{commande.quantite}" />
+		<b:dataTableColumn>
+			<f:facet name="header"><h:outputText value="Prix unitaire"/></f:facet>
+			<h:outputText value="#{commande.article.prix}">
+			<f:convertNumber currencySymbol = "€" type = "currency"/>
+			</h:outputText>
+ 		</b:dataTableColumn>
+    	
+    </b:dataTable>
+    </b:panel>        
+ 
+</h:form>
+
+ <h:form>
+	<b:row>
+		<b:column span="2" offset="2">
+			<b:link value="Retour" href="javascript:history.go(-1)"
+					styleClass="btn btn-primary" size="sm" />
+		</b:column>
+	</b:row>
+	<br />
+	<br />
+</h:form>
+
+</div>
+</ui:define>
+</ui:composition>
+
+</h:body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+   
+	<h:body>
+	<!-- Header -->
+	<ui:composition template="/arche.xhtml">
+		<ui:define name="content" >
+			<div class="centrePage">
+			
+			
+			<!-- debut centre page -->
+				<h:form>
+				
+					<b:selectOneMenu value="#{mbMouvement.selectedTypeMouvement}"
+						colMd="2" label="Type Mouvement" labelColMd="2">
+
+						
+						<f:selectItems value="#{mbTypeMouvement.allTypesMouvement}" var="t" itemValue="#{t}"
+							itemLabel="#{t.nom}" />
+					</b:selectOneMenu>
+					
+					<b:container fluid="true">
+						<b:row>
+							<b:column medium-screen="2">
+								<h:outputText value="Date:" />
+							</b:column>
+							<b:column medium-screen="4">
+														
+								<b:dateTimePicker value="#{mbMouvement.ajoutMouvement.date}"
+									icon-position="left"
+									format="dd.MM.YYYY" 
+									label="Date" 
+									tooltip="Format date dd.mm.yyyy"
+									tiny-screen="one-fourth"
+									/>
+									
+															
+									
+							</b:column>
+							<b:column medium-screen="6">
+								<b:message />
+							</b:column>
+						</b:row>
+						<b:row>
+							<b:column span="2" offset="2">
+								<b:commandButton value="Valider" look="primary"
+									style="width:100%" action="#{mbMouvement.addMouvement()}" />
+							</b:column>
+						</b:row>
+					</b:container>
+				</h:form>
+			<!-- fin centre page  -->
+				
+			</div>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

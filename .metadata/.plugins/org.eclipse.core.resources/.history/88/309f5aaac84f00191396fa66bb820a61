@@ -1,0 +1,21 @@
+package Entities;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="majStock")
+public class MajStock implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
+	@Column(name="quantite")
+	private int quantite;
+	
+	//PAS D'ID???
+		//TODO: SI TABLE COMPLETE AJOUTER GETTERS AND SETTERS + CONSTRUCTEURS + TO STRING
+
+}

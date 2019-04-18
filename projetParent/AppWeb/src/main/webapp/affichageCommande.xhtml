@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+
+	<h:body>
+<f:metadata>
+	<f:viewParam name="id" value="#{mbArticle.sousCatSelect}"></f:viewParam>
+	<f:viewAction action="#{mbArticle.init()}"></f:viewAction>
+	<f:event listener="#{mbcommande.init()}" type="preRenderView"/>
+		<f:viewAction action="#{mbcommande.init()}"></f:viewAction>
+</f:metadata>	
+
+	<ui:composition template="/arche.xhtml">
+	<ui:define name="content" >
+<div class="leftPage">
+
+<b:row>
+ <b:column span="6" offset="3">
+ <h3 style="color: #35cbdf; font-family: Arial, sans-serif; font-size:50px" align="center"  >Détail de votre commande</h3></b:column>
+</b:row>
+<br/>
+<b:row>
+ <b:column span="6" offset="3">
+ 	<h4 style="color: #35cbdf; font-family: Arial, sans-serif; font-size:30px" align="center"  >
+ Prix total de votre commande 
+ 		<h:outputText value="#{mbcommande.prixTotal}">
+			<f:convertNumber currencySymbol = "€" type = "currency"/>
+		</h:outputText>
+ 	</h4>
+ </b:column>
+</b:row>
+<br/>
+
+
+
+
+
+<h:form>
+<b:panel style="border-color:white">
+  <b:dataTable value="#{mbcommande.commandes}"
+               var="commande"  col-sm="8" info="false" offset-sm="2">
+
+    <b:dataTableColumn label="">  <img src="img/#{commande.article.nomImage}" alt="photo" height="100px"/></b:dataTableColumn>
+    <b:dataTableColumn value="#{commande.article.nom}"/>    
+    <b:dataTableColumn value="#{commande.quantite}"/>
+
+	<b:dataTableColumn>
+		<f:facet name="header"><h:outputText value="Prix unitaire"/></f:facet>
+		<h:outputText value="#{commande.article.prix}">
+		<f:convertNumber currencySymbol = "€" type = "currency"/>
+		</h:outputText>
+ 	</b:dataTableColumn>
+
+
+	 <b:dataTableColumn > 
+		 <f:facet name="header"><p style="color:white">Action</p>
+	 	</f:facet><b:commandButton action="#{mbcommande.deleteCommande(commande)}" style-class="btn btn-danger" >Supprimer</b:commandButton>
+	 </b:dataTableColumn>
+   
+  
+  </b:dataTable>
+  </b:panel>
+</h:form>
+<h:form>
+
+<b:row>
+	<b:column span="2" offset="2">
+	<b:link value="Retour" href="javascript:history.go(-1)"
+		styleClass="btn btn-primary" size="sm" />
+	</b:column>
+	<b:column span="2" offset="4">
+		<b:commandButton value="Valider" look="primary" style="width:100%"
+				action="#{mbcommande.paiement()}" />
+		</b:column>
+</b:row>
+
+
+<b:row>
+</b:row>
+				
+				<br />
+<br />
+</h:form>
+
+
+</div>
+
+
+ 
+</ui:define>
+</ui:composition>
+
+</h:body>
+</html>

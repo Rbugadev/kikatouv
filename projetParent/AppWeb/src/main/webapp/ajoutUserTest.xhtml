@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui"
+	>
+
+<h:body>
+
+<h:form>
+
+nom<b:inputText value="#{mbUser.ajoutUser.nom}"/><br/>
+prenom<b:inputText value="#{mbUser.ajoutUser.prenom}"/><br/>
+mail<b:inputText value="#{mbUser.ajoutUser.adresseMail}"/><br/>
+login<b:inputText value="#{mbUser.ajoutUser.login}"/><br/>
+mp<b:inputSecret value="#{mbUser.ajoutUser.password}"/><br/>
+portable<b:inputText value="#{mbUser.ajoutUser.numTelPortable}"/><br/>
+fixe<b:inputText value="#{mbUser.ajoutUser.numTelFixe}"/><br/>
+adresse<b:inputText value="#{mbUser.ajoutUser.adresse}"/><br/>
+
+<h:commandButton action="#{mbUser.addUser()}" value="Valider" />
+
+</h:form>
+
+</h:body>
+
+
+
+ 
+</html>

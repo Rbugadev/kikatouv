@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+    
+	<h:body>
+	
+
+	<ui:composition template="/arche.xhtml">
+	<ui:define name="content" >
+	
+<!--  <div class="centrePage"> -->
+
+<!--  à récupérer  -->
+<f:metadata> 
+	<f:viewParam name="id" value="#{mbSousCat.sousCatSelect}"/> 
+	<f:viewAction action="#{mbSousCat.init()}"/> 
+</f:metadata> 
+
+<section class="info-section">
+
+	<div class="container">
+
+		<div class="head-box text-center mb-5">
+			<h2>Que cherchez vous</h2>
+			<h6 class="text-underline-primary">Choisissez une catégorie pour consulter les articles</h6>
+		</div>
+			<div class="row" >
+		<ui:repeat value="#{mbSousCat.allCatById}" var="souscat">
+		
+	
+				<div class="col-lg-4 col-md-6 col-sm-6">
+					<div class="service-block-overlay text-center mb-5 p-lg-3">
+			
+					
+			<b:panelGrid columns="1" style="relative:center"  >	
+				<a href= "/AppWeb/faces/affichageArticle.xhtml?id=#{souscat.id}">
+	            	<img src="img/#{souscat.nomImage}" height="100px"/>
+	 				<h:outputLabel>#{souscat.nom}</h:outputLabel>
+					<p class="px-4">#{souscat.description}</p>
+				</a>
+	        </b:panelGrid>
+	        
+	        </div></div>
+		
+	        
+	        
+		</ui:repeat>
+		</div>
+		
+		
+		</div>	
+	
+</section>
+
+
+
+<!--   </div>-->
+
+</ui:define>
+</ui:composition>
+</h:body>
+</html>

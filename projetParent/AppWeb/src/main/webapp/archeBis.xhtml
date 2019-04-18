@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+	<h:head>
+	<link href="resources/css/arche.css" rel="stylesheet" />
+	</h:head>
+<h:body>
+
+
+<div id="header">
+<b:navBar brand="KikaTou" fluid="true" inverse="true" brand-img="img/logo.png">
+
+		<b:navbarLinks>
+		
+				<b:dropMenu iconAwesome="child" value="Enfant(s)">
+					<b:form>
+						<b:commandButton iconAwesome="fas fa-users" value="Afficher enfant(s)" action="#{mbaEnfant.rechercherListeEnfantsByIdAdherent()}"/>
+						<f:param name="idParentConnected" value="#{mbConnected.user.id}" />
+					</b:form>
+					<b:navLink iconAwesome="fas fa-user-plus" value="Enregistrer enfant" href=""></b:navLink>
+				</b:dropMenu>
+				<b:dropMenu iconAwesome="fas fa-comments" value="Annonces">
+				<b:navLink iconAwesome="fas fa-list-ul" value="Afficher annonces" href=""></b:navLink>
+				<b:navLink iconAwesome="fas fa-comment" value="Créer une annonce" href=""></b:navLink>
+				</b:dropMenu>
+				<b:navLink value="Votre compte" href=""></b:navLink>
+				
+				
+	</b:navbarLinks>
+</b:navBar>	
+
+
+
+
+
+
+</div>
+
+
+
+<div id="centre">
+		<ui:insert name="content"> </ui:insert>
+		
+	</div>
+
+</h:body>
+</html>

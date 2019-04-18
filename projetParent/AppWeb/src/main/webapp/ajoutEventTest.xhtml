@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+    
+	<h:body>
+		
+	<!-- Header -->
+	<ui:composition template="/arche.xhtml">
+		<ui:define name="content" >
+			<div class="leftPage">
+				<br/>
+				<br/>
+				<br/>
+				<h:form>
+				<b:panel title="Création d'un nouvel évenement" look="info" col-sm="6" offset-sm="3">
+					<b:row>
+					
+ 					
+  						<!-- <b:dateTimePicker value="#{mbEvent.ajoutEvent.dateDebut}" format="DD/MM/YYYY" label="Date de début"  /> -->
+  						<b:dateTimePicker value="#{mbEvent.ajoutEvent.dateDebut}"
+										icon-position="left"
+  										format="DD.MM.YYYY"
+  										tooltip="Format date de debut dd.mm.yyyy" 
+  										tiny-screen="one-fourth"  placeholder="Date de début"  required="true" col-sm="6" offset-sm="3"/>
+  					</b:row>
+
+  					<b:row>
+  						<!--  <b:dateTimePicker value="#{mbEvent.ajoutEvent.dateFin}" format="DD/MM/YYYY" label="Date de fin"  /> -->
+						<b:dateTimePicker value="#{mbEvent.ajoutEvent.dateFin}"
+										icon-position="left"
+  										format="DD.MM.YYYY"
+  										placeholder="Date de fin"
+  										tooltip="Format date de fin dd.mm.yyyy" 
+  										tiny-screen="one-fourth"  required="true" required-message="Obligatoire" col-sm="6" offset-sm="3"/>
+					</b:row>
+					
+					<b:row>
+  						<b:inputText value="#{mbEvent.ajoutEvent.rueLivraison}" placeholder="Adresse de livraison" col-sm="6" offset-sm="3" required="true"/><br/>
+  					</b:row>
+  					
+ 					
+ 					<b:row>
+ 						<b:column span="2" offset="3">
+ 							<b:inputText value="#{mbVille.ville.codePostal}" placeholder="Code Postal" required="true"/></b:column>
+ 							<b:column span="4"><b:inputText value="#{mbVille.ville.nom}" placeholder="Ville" required="true"/><br/>
+ 						</b:column>
+ 					</b:row>
+  					
+  					<b:row>
+						<b:column span="6" offset="3"><h:commandButton action="#{mbEvent.addEvent(mblogin.user.id)}" value="Valider" styleClass="btn btn-primary" size="sm"/>
+					</b:column></b:row>
+					</b:panel>
+				</h:form>
+
+			</div>
+		</ui:define>
+	</ui:composition>
+	</h:body>
+</html>

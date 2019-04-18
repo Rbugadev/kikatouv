@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html >
+<html  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+<h:head>
+<meta charset="UTF-8"/>
+<title>KiKaTou - Administration</title>
+</h:head>
+<link href="resources/css/accueil.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.2.5/jquery.bootstrap-touchspin.css" rel="stylesheet" id="bootstrap-touchspin.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" id="bootstrap-datetimepicker-css" />		
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"	type="text/javascript"></script>
+<script	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.2.5/jquery.bootstrap-touchspin.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+
+
+<div id="throbber" style="display:none; min-height:120px;"></div>
+<div id="noty-holder"></div>
+
+<div id="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/AppWeb/faces/affichageArticleStockDispo.xhtml">
+                <img src="img/logo.png" alt="LOGO" width="80px"/>
+            </a>
+        </div>
+        
+        <!-- Top Menu Items -->
+        <ul class="nav navbar-right top-nav">
+        		<b:form>
+  				<b:navCommandLink value="Déconnexion" action="#{mblogin.deconnection()}">
+					<i class="fa fa-fw fa-power-off"></i>
+				</b:navCommandLink>
+				</b:form>
+             <li class="dropdown">
+            </li>
+        </ul>
+        
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li>
+                    <a href="/AppWeb/faces/affichageClient.xhtml"><i class="fa fa-fw fa-search"></i>Nos clients </a>
+                 </li>
+                <li>
+                    <a href="/AppWeb/faces/affichageHistoMvt.xhtml"><i class="fa fa-fw fa-star"></i>  Mouvements stocks</a>
+                </li>
+                <li>
+                    <a href="/AppWeb/faces/messageAdmin.xhtml"><i class="fa fa-fw fa-user-plus"></i>  Commentaire</a>
+                </li>
+                <li>
+                    <a href="/AppWeb/faces/adminEventRetour.xhtml"><i class="fa fa-fw fa-star"></i>Les events non retournés</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="row" id="main" >
+                <div class="col-sm-12 col-md-12 well" id="content">
+                    <h1>Welcome Admin!</h1>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+        <div id="centre" > <!-- Changer l'emplacement avec align="center/right.." -->
+		<ui:insert name="content"> </ui:insert>
+		
+	</div>
+
+<br/>
+	<br/>
+	<br/>
+	<br/>
+    </div>
+    <!-- /#page-wrapper -->
+</div><!-- /#wrapper -->
+</html>
